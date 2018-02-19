@@ -1,0 +1,24 @@
+{
+  "name": "x-blog",
+  "version": "1.0.0",
+  "description": "Xblog is a personal blog theme",
+  "main": "index.js",
+  "scripts": {
+    "watch": "node-sass sass/main.scss style/style.css -w",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch",
+    "compile": "node-sass sass/main.scss style/style.comp.css",
+    "prefix": "postcss --config postcss.config.js -o style/style.prefix.css style/style.comp.css",
+    "compress": "node-sass style/style.prefix.css style/style.min.css --output-style compressed",
+    "build": "npm-run-all compile prefix compress"
+  },
+  "author": "Berkan Çetinkaya",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^8.0.0",
+    "concat": "^1.0.3",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.1.1",
+    "postcss-cli": "^5.0.0"
+  }
+}
