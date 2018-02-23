@@ -21,7 +21,13 @@
                                 <img class="logo-wrap__logo" src="img/logo.png" alt="Logo">
                               </picture></a>
 
-                              <img  class="burger" src="img/burger.svg" alt="">
+                              <div id="mobile-bar" class="top">
+                                    <a class="menu-button"></a>
+                                    
+                                  </div>
+
+
+                              
             
                         <form action="#" class="search">
                                 <input type="text" class="search__input" placeholder="Search">
@@ -31,8 +37,22 @@
                             </form>
                 </nav>
 
-
                 
+
+            
+                <div class="sidebar">
+                       
+                        <div class="sidebar__profile">
+
+                                <img class="sidebar__img" src="img/portait.png" alt="">
+                 
+                                <h1 class="sidebar__name">Jane Doe</h1>
+                                <h3 class="sidebar__job-title">Mobile Web Specialist</h3>
+                 
+                                <a class"sidebar__link" href="/about-me.html">More about me</a>
+                 
+                        </div>
+                        </div>
 
         </header>
 
@@ -198,6 +218,49 @@
             </footer>
                 
 
+        
+    <script>
+            function initMobileMenu () {
+          var mobileBar = document.getElementById('mobile-bar')
+          var sidebar = document.querySelector('.sidebar')
+          var menuButton = mobileBar.querySelector('.menu-button')
+       
+          menuButton.addEventListener('click', function () {
+            sidebar.classList.toggle('open')
+          })
+       
+          document.body.addEventListener('click', function (e) {
+            if (e.target !== menuButton && !sidebar.contains(e.target)) {
+              sidebar.classList.remove('open')
+            }
+          })
+       
+          // Toggle sidebar on swipe
+          var start = {}, end = {}
+       
+          document.body.addEventListener('touchstart', function (e) {
+            start.x = e.changedTouches[0].clientX
+            start.y = e.changedTouches[0].clientY
+          })
+       
+          document.body.addEventListener('touchend', function (e) {
+            end.y = e.changedTouches[0].clientY
+            end.x = e.changedTouches[0].clientX
+       
+            var xDiff = end.x - start.x
+            var yDiff = end.y - start.y
+       
+            if (Math.abs(xDiff) > Math.abs(yDiff)) {
+              if (xDiff > 0 && start.x <= 80) sidebar.classList.add('open')
+              else sidebar.classList.remove('open')
+            }
+          })
+        }
+       
+       initMobileMenu ();
+       
+       </script>
+       
     </body>
 
 </html>

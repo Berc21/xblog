@@ -88,6 +88,39 @@ body {
     text-align: right;
     display: block; }
 
+.slideout-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 256px;
+  min-height: 100vh;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  z-index: 0;
+  display: none; }
+
+.slideout-menu-left {
+  left: 0; }
+
+.slideout-menu-right {
+  right: 0; }
+
+.slideout-panel {
+  position: relative;
+  z-index: 1;
+  will-change: transform;
+  background-color: #FFF;
+  /* A background-color is required */
+  min-height: 100vh; }
+
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+  overflow: hidden; }
+
+.slideout-open .slideout-menu {
+  display: block; }
+
 body {
   background: #E6ECF0; }
 
@@ -98,21 +131,15 @@ header {
 
 nav {
   display: flex;
-  align-items: center;
   border-bottom: 1px solid #999; }
+  @media only screen and (max-width: 37.5em) {
+    nav {
+      justify-content: center; } }
   nav .logo {
-    flex: 1; }
+    flex: 0 1 8rem; }
     @media only screen and (max-width: 37.5em) {
       nav .logo {
         padding: 1rem 2rem; } }
-  nav .burger {
-    display: none; }
-    @media only screen and (max-width: 37.5em) {
-      nav .burger {
-        display: flex;
-        max-width: 3.2rem;
-        height: auto;
-        margin-right: 2rem; } }
   nav .input {
     flex-grow: 0;
     flex-shrink: 1;
@@ -602,3 +629,35 @@ nav {
       .sub-footer__copyright {
         flex: 1;
         text-align: center; } }
+
+.sidebar {
+  display: none; }
+  @media only screen and (max-width: 37.5em) {
+    .sidebar {
+      position: fixed;
+      z-index: 10;
+      background-color: #f9f9f9;
+      height: 100%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0, 1);
+      -webkit-transform: translate(-460px, 0);
+      transform: translate(-460px, 0);
+      display: block;
+      bottom: 0;
+      overflow-x: hidden;
+      overflow-y: auto; } }
+  .sidebar__profile {
+    padding: 2rem;
+    text-align: center; }
+
+.open {
+  transform: translate(0, 0); }
+
+@media only screen and (max-width: 37.5em) {
+  .menu-button {
+    position: absolute;
+    background: url(../img/burger.svg) center center no-repeat;
+    width: 2.4rem;
+    height: 2.4rem;
+    top: 1.5rem;
+    left: 1.2rem; } }
