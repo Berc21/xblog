@@ -14,7 +14,12 @@
     <body>
         <header>
                 <nav>
-                        <a  class="logo" href="/"><img src="img/logo.png" alt=""></a>
+                        <a  class="logo" href="/">  <picture>
+                                <source class="logo-wrap__logo" media="(max-width: 465px)" srcset="img/logo-sm.png">
+                                <img class="logo-wrap__logo" src="img/logo.png" alt="Logo">
+                              </picture></a>
+
+                              <img  class="burger" src="img/burger.svg" alt="">
             
                         <form action="#" class="search">
                                 <input type="text" class="search__input" placeholder="Search">
@@ -152,7 +157,7 @@
                            </ul>
             </section>    
 
-       
+            
        
        
     </body>

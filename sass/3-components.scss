@@ -1,6 +1,9 @@
 .search {
     flex:  0 0 40%;
 
+    @include media(phone) {
+        display: none;
+       }
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,9 +55,16 @@
     margin-left: 2rem;
     margin-bottom: 3rem;
 
+    @include media(phone) {
+        margin-right: 2rem;
+        margin-left: 2rem;
+        
+       }
+
     &__heading {
         font-size: 3.2rem;
         font-weight: bolder;
+        
     }
     &__p {
         font-size: 1.6rem;
